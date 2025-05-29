@@ -1,0 +1,141 @@
+:root {
+  --yellow-clean: #f9d976;
+  --yellow-dark: #f39c12;
+  --bg-color: #fff9e6;
+  --text-color: #4a4a4a;
+  --box-bg: #fff4b2;
+  --box-shadow: rgba(243, 156, 18, 0.4);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+header {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo-circle {
+  width: 100px;
+  height: 100px;
+  background-color: var(--yellow-clean);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--yellow-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--yellow-dark);
+  user-select: none;
+}
+
+.img-redonda {
+  width: 101px;
+  height: 101px;
+  border-radius: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+main h1 {
+  color: var(--yellow-dark);
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+section h2 {
+  color: var(--yellow-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Estilo para os quadrados dos horários */
+section p {
+  background-color: var(--box-bg);
+  color: var(--yellow-dark);
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px var(--box-shadow);
+  user-select: none;
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+section p:hover {
+  background-color: var(--yellow-dark);
+  color: white;
+}
+
+/* Animação fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  main {
+    padding: 15px 15px;
+  }
+
+  section p {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+.btn-voltar {
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--yellow-dark);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 5px 10px rgba(243,156,18,0.4);
+  cursor: pointer;
+}
+
+.btn-voltar:hover {
+  background: #d67c0d;
+  transform: scale(1.05);
+  box-shadow: 0 7px 14px rgba(214,124,13,0.6);
+}

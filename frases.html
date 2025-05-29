@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frases de Santos - Sorteio</title>
+  <link rel="stylesheet" href="frases.css" />
+</head>
+<body>
+
+  <main>
+    <h1>Frase de Santo do Dia</h1>
+    <div id="quote-box">
+      <p id="quote-text">Clique no botão para sortear uma frase!</p>
+      <p id="quote-author"></p>
+    </div>
+    <button id="btn-sorteio">Sortear frase</button>
+
+    <!-- Botão Voltar -->
+    <a href="index.html" class="btn-voltar">Voltar para página inicial</a>
+  </main>
+
+  <script>
+    const frases = [
+      { autor: "Santo Agostinho", texto: "Ama e faze o que quiseres." },
+      { autor: "São Francisco de Assis", texto: "Pregue o Evangelho em todo tempo. Se necessário, use palavras." },
+      { autor: "Santa Teresinha do Menino Jesus", texto: "Quero passar meu céu fazendo o bem na terra." },
+      { autor: "São João Paulo II", texto: "Não tenhais medo! Abri, ou melhor, escancarai as portas a Cristo!" },
+      { autor: "Santa Teresa d’Ávila", texto: "Nada te perturbe, nada te espante. Tudo passa, Deus não muda." },
+      { autor: "São Bento", texto: "Ora et labora (Reza e trabalha)." },
+      { autor: "Santa Catarina de Sena", texto: "Se fordes o que deveis ser, incendiareis o mundo!" },
+      { autor: "São João Bosco", texto: "A alegria é o sinal de um coração que ama a Deus." },
+      { autor: "São Padre Pio de Pietrelcina", texto: "Reza, espera e não te preocupes." },
+      { autor: "São Maximiliano Kolbe", texto: "Somente o amor cria." },
+      { autor: "São Luís Maria Grignion de Montfort", texto: "A devoção verdadeira à Santíssima Virgem é santa, interior e constante." },
+      { autor: "Santa Faustina Kowalska", texto: "Jesus, eu confio em Vós!" },
+      { autor: "São Jerônimo", texto: "Ignorar as Escrituras é ignorar Cristo." },
+      { autor: "Santa Clara de Assis", texto: "Ama a Deus e segue os seus mandamentos." },
+      { autor: "São Domingos de Gusmão", texto: "Arda de zelo pela salvação das almas." },
+      { autor: "São Vicente de Paulo", texto: "A caridade é inventiva até o infinito." },
+      { autor: "Santa Teresa de Calcutá (Madre Teresa)", texto: "Não somos chamados a ser bem-sucedidos, mas fiéis." },
+      { autor: "São João da Cruz", texto: "Ao entardecer da vida, seremos julgados pelo amor." },
+      { autor: "Santa Gianna Beretta Molla", texto: "O valor da vida humana é absoluto desde a concepção." },
+      { autor: "São Francisco Xavier", texto: "Dai-me almas!" },
+      { autor: "São Tomás de Aquino", texto: "A alma se eleva a Deus através da beleza." },
+      { autor: "Santa Rosa de Lima", texto: "Sem a cruz, não há caminho para o céu." },
+      { autor: "São Martinho de Lima", texto: "A compaixão é a linguagem de Deus." },
+      { autor: "São João Maria Vianney", texto: "O sacerdócio é o amor do Coração de Jesus." },
+      { autor: "Santa Hildegarda de Bingen", texto: "Toda criação é um canto à glória de Deus." },
+      { autor: "Santo Afonso de Ligório", texto: "Quem reza se salva, quem não reza se condena." },
+      { autor: "São Policarpo", texto: "Há oitenta e seis anos sirvo a Cristo, e Ele nunca me fez mal." },
+      { autor: "Santa Isabel da Hungria", texto: "Distribuía pão como se distribuísse amor." },
+      { autor: "São Roque", texto: "Caridade é o caminho que conduz a Deus." },
+      { autor: "Santa Inês de Roma", texto: "Pertence a Cristo o que é de Cristo." },
+      { autor: "São Felipe Néri", texto: "Tristeza e melancolia, fora da minha casa!" },
+      { autor: "Santa Cecília", texto: "Cantava no coração ao Senhor somente." },
+      { autor: "São Lourenço", texto: "Esses pobres são os verdadeiros tesouros da Igreja." },
+      { autor: "São Camilo de Lellis", texto: "Mais coração nas mãos, irmãos." },
+      { autor: "Santa Zélia Martin", texto: "A santidade é possível para todos." },
+      { autor: "São José Maria Escrivá", texto: "Santifica-te e santifica o teu trabalho." },
+      { autor: "Santa Paulina", texto: "Nunca, jamais desanimeis, embora venham ventos contrários." },
+      { autor: "São Francisco de Sales", texto: "Seja como for, seja doce." },
+      { autor: "Santa Edith Stein (Teresa Benedita da Cruz)", texto: "A cruz não é o fim, é o início da glória." },
+      { autor: "São Bruno", texto: "O céu não muda, só o mundo gira." },
+      { autor: "São Clemente de Roma", texto: "Amar é obedecer com alegria." },
+      { autor: "Santa Maria Goretti", texto: "Prefiro morrer a pecar." },
+      { autor: "São Gregório Magno", texto: "Servir é reinar." },
+      { autor: "Santa Catarina Labouré", texto: "Maria me apareceu como uma Mãe." },
+      { autor: "São João Damasceno", texto: "A oração é a respiração da alma." },
+      { autor: "Santa Escolástica", texto: "Amor fraterno prevalece sobre regras." },
+      { autor: "São Simeão Estilita", texto: "Sobe ao alto para ver a Deus." },
+      { autor: "Santa Margarida Maria Alacoque", texto: "O Coração de Jesus é uma fornalha de amor." },
+      { autor: "São Pedro Julião Eymard", texto: "A Eucaristia é o céu na terra." },
+      { autor: "Santa Angela de Mérici", texto: "Educar é plantar sementes eternas." },
+      { autor: "São Leão Magno", texto: "Cristão, reconhece tua dignidade!" },
+      { autor: "Santa Brígida da Suécia", texto: "Jesus me ensinou com Suas dores." },
+      { autor: "São Nicolau de Mira", texto: "Ajuda com alegria e silêncio." },
+      { autor: "Santa Rita de Cássia", texto: "Onde há fé, Deus abre caminhos." },
+      { autor: "São Carlos Borromeu", texto: "Renova tua alma como a Igreja." },
+      { autor: "Santa Bernadette Soubirous", texto: "Fui instrumento, não autora." },
+      { autor: "São João Nepomuceno", texto: "Antes morrer que revelar segredo de confissão." },
+      { autor: "Santa Liduína de Schiedam", texto: "Sofrer com amor é graça." },
+      { autor: "São José de Cupertino", texto: "Só sei voar para Deus." },
+      { autor: "Santa Ludmila da Boêmia", texto: "Educar com fé é reinar com Cristo." },
+      { autor: "São Nicolau de Flüe", texto: "Meu Senhor e meu Deus, afasta de mim tudo que me afasta de Ti." },
+      { autor: "Santa Filomena", texto: "A pureza é minha armadura." },
+      { autor: "São Rafael Arcanjo (festejado como santo)", texto: "Guio com amor e cura." },
+      { autor: "Santa Cristina de Bolsena", texto: "A fé faz milagres no martírio." },
+      { autor: "São Isaac Jogues", texto: "Eu sofro, mas por amor eterno." },
+      { autor: "Santa Ursula", texto: "A virgindade me consagrou ao céu." },
+      { autor: "São Crispim", texto: "Trabalhar para Cristo é descansar." },
+      { autor: "Santa Edwiges", texto: "Ajude os pobres com dignidade." },
+      { autor: "São João Fisher", texto: "Morro pelo Papa, vivo por Cristo." },
+      { autor: "Santa Perpétua", texto: "O nome de cristã é meu maior título." },
+      { autor: "São Sebastião", texto: "Minha carne pode ser ferida, minha fé não." },
+      { autor: "Santa Mônica", texto: "As lágrimas de uma mãe não se perdem." },
+      { autor: "São João Batista", texto: "É necessário que Ele cresça e eu diminua." },
+      { autor: "Santa Verônica Giuliani", texto: "A cruz é meu livro de amor." },
+      { autor: "São Gabriel da Virgem Dolorosa", texto: "Maria me ensinou a sofrer com amor." },
+      { autor: "Santa Maria Madalena de Pazzi", texto: "Sofrer por amor é alegria." },
+      { autor: "São Teotônio", texto: "Reze antes de julgar." },
+      { autor: "Santa Joana d’Arc", texto: "Estou nos planos de Deus. Ele me guiará." },
+      { autor: "São Genésio", texto: "A fé me encontrou no palco." },
+      { autor: "Santa Juliana de Liège", texto: "A Eucaristia é o sol das almas." },
+      { autor: "São Roque González", texto: "Evangelizar é doar a vida." },
+      { autor: "Santa Margarida de Cortona", texto: "Meu passado foi dor, meu futuro é amor." },
+      { autor: "São Pedro Claver", texto: "Servo dos escravos para sempre." },
+      { autor: "Santa Eulália de Mérida", texto: "Minha juventude é de Cristo." },
+      { autor: "São Benedito, o Negro", texto: "A humildade é minha glória." },
+      { autor: "Santa Melânia, a Jovem", texto: "Tudo dei, e ganhei o céu." },
+      { autor: "São Turíbio de Mongrovejo", texto: "O Evangelho é minha missão." },
+      { autor: "Santa Afra de Augsburgo", texto: "De pecadora a santa, pelo amor de Cristo." },
+      { autor: "São Frumêncio da Etiópia", texto: "A África encontrou Cristo." },
+      { autor: "Santa Anastácia", texto: "O martírio é meu hino de fidelidade." },
+      { autor: "São Ricardo de Chichester", texto: "Ver-te mais claramente, amar-te mais ternamente." },
+      { autor: "Santa Olímpia de Constantinopla", texto: "A caridade nunca acaba." },
+      { autor: "São Columbano", texto: "Que tudo em ti seja Cristo." },
+      { autor: "Santa Blandina", texto: "Cristã sou, e nada temo." },
+      { autor: "São Isidoro de Sevilha", texto: "Estuda com fé, vive com amor." },
+      { autor: "Santa Leocádia", texto: "A prisão é meu céu se Deus estiver comigo." },
+      { autor: "São Pacômio", texto: "Comunidade é caminho de santidade." },
+      { autor: "Santa Justina de Pádua", texto: "A castidade é luz para a alma." },
+      { autor: "São Maurício", texto: "Antes morrer que trair Cristo." },
+      { autor: "Santa Wilgefortis", texto: "Sofri por recusar o mundo e ganhar Cristo." }
+    ];
+
+    const btn = document.getElementById("btn-sorteio");
+    const quoteText = document.getElementById("quote-text");
+    const quoteAuthor = document.getElementById("quote-author");
+
+    btn.addEventListener("click", () => {
+      const index = Math.floor(Math.random() * frases.length);
+      const frase = frases[index];
+      quoteText.textContent = `"${frase.texto}"`;
+      quoteAuthor.textContent = `— ${frase.autor}`;
+    });
+  </script>
+
+</body>
+</html>

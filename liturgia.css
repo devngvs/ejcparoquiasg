@@ -1,0 +1,123 @@
+/* estilos gerais */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f7f1;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* header com logo centralizada */
+header {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* círculo amarelo com sombra */
+.logo-circle {
+  width: 110px;
+  height: 110px;
+  background-color: #f9d976;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* logo redonda dentro do círculo */
+.logo-circle img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* main content centralizado */
+main {
+  max-width: 960px;
+  width: 100%;
+  text-align: center;
+}
+
+/* título */
+main h1 {
+  font-size: 2.5rem;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+/* parágrafo explicativo */
+main p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* iframe estilizado */
+iframe {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+iframe:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* botão voltar */
+.btn-voltar {
+  display: inline-block;
+  margin: 30px auto 0 auto; /* espaço acima, centralizado horizontalmente */
+  padding: 12px 28px;
+  background-color: #f39c12;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(243, 156, 18, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  text-align: center;
+}
+
+.btn-voltar:hover,
+.btn-voltar:focus {
+  background-color: #d67c0d;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(214, 124, 13, 0.6);
+  outline: none;
+}
+
+/* responsividade para telas pequenas */
+@media (max-width: 480px) {
+  main h1 {
+    font-size: 1.8rem;
+  }
+
+  .logo-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .logo-circle img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .btn-voltar {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,134 @@
+:root {
+  --yellow-clean: #f9d976;
+  --yellow-dark: #f39c12;
+  --bg-color: #fff9e6;
+  --text-color: #4a4a4a;
+  --btn-bg: #f39c12;
+  --btn-hover-bg: #d67c0d;
+  --btn-color: white;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 480px;
+  width: 100%;
+}
+
+h1 {
+  color: var(--yellow-dark);
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+#quote-box {
+  background: var(--yellow-clean);
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px var(--yellow-dark);
+  margin-bottom: 30px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#quote-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  user-select: none;
+}
+
+#quote-author {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--yellow-dark);
+  margin: 0;
+  user-select: none;
+}
+
+#btn-sorteio {
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 12px rgba(243,156,18,0.4);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+#btn-sorteio:hover,
+#btn-sorteio:focus {
+  background-color: var(--btn-hover-bg);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(214,124,13,0.6);
+  outline: none;
+}
+
+.btn-voltar {
+  display: block;
+  margin: 20px auto 0 auto;
+  background: var(--yellow-dark);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(243,156,18,0.4);
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-voltar:hover {
+  background: #d67c0d;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(214,124,13,0.6);
+}
+
+@media (max-width: 500px) {
+  main {
+    padding: 25px 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #quote-text {
+    font-size: 1.1rem;
+  }
+
+  #btn-sorteio {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .btn-voltar {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+}

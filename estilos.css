@@ -1,0 +1,115 @@
+:root {
+  --yellow-clean: #f9d976;
+  --yellow-dark: #f39c12;
+  --bg-color: #fff9e6;
+  --text-color: #4a4a4a;
+  --btn-bg: #f39c12;
+  --btn-hover-bg: #d67c0d;
+  --btn-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.logo-circle {
+  width: 100px;
+  height: 100px;
+  background-color: var(--yellow-clean);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--yellow-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.img-redonda {
+  width: 101px;
+  height: 101px;
+  border-radius: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+main h1 {
+  color: var(--yellow-dark);
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+nav ul a {
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 10px rgba(243,156,18,0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+nav ul a:hover,
+nav ul a:focus {
+  background-color: var(--btn-hover-bg);
+  transform: scale(1.05);
+  box-shadow: 0 8px 14px rgba(214,124,13,0.6);
+}
+
+@media (max-width: 500px) {
+  main {
+    padding: 20px 15px;
+  }
+
+  main h1 {
+    font-size: 1.5rem;
+  }
+
+  nav ul a {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
